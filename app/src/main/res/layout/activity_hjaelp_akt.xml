@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.marcus.galgeleg.Hjaelp_akt">
+
+    <Button
+        android:id="@+id/tilbageKnap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tilbage"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="137dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/hjaelpTekst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text='Galgespil går ud på at gætte et ord eller en sætning, hvor kun antallet af bogstaver er kendt, lidt i stil med Lykkehjulet. Der gættes på skift et bogstav af gangen, og korrekte bogstaver bliver placeret på de respektive pladser i ordet eller sætningen. For hver gang, der gættes forkert bliver der tegnet en del af en galge med en hængt mand på papiret eller tavlen. Opgaven går ud på gætte hele ordet eller sætningen inden tegningen bliver færdiggjort. Mængden af streger der bliver bliver tegnet for hvert forkert gæt, og tegningen kompleksitet kan varieres for at give spillerne mere eller mindre tid. " +                 "\n" +                 "Strategien i spillet går ud på at gætte på de bogstaver, der bruges hyppigst på det respektive sprog, som spillet spilles på. Dvs. at bogstaver som e, s, r og t typisk optræder i danske ord. Personen der bestemmer ordet eller sætningen kan samtidig spekulere i at bruge ord, som har få eller ingen hyppige bogstaver, som f.eks. jazz. - kilde: Wikipedia'
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+</android.support.constraint.ConstraintLayout>

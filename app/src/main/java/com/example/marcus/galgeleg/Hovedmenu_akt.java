@@ -9,6 +9,7 @@ import android.widget.Button;
 public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickListener {
 
     Button knap;
+    Button hjaelpKnap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,10 @@ public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickList
 
         knap.setOnClickListener(this);
 
+        hjaelpKnap = (Button) findViewById(R.id.hjaelpKnap);
+
+        hjaelpKnap.setOnClickListener(this);
+
 
         System.out.println("Hovedmenu er lavet");
 
@@ -25,8 +30,21 @@ public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickList
     }
 
     public void onClick(View v) {
-        System.out.println("spilknap er trykket");
-        Intent i = new Intent(this, Spil_akt.class);
-        startActivity(i);
+        switch(v.getId()) {
+
+            case R.id.spilknap:
+            System.out.println("spilknap er trykket");
+            Intent i = new Intent(this, Spil_akt.class);
+            startActivity(i);
+                break;
+
+            case R.id.hjaelpKnap:
+                System.out.println("hjaelpknap er trykket");
+                Intent ih = new Intent(this, Hjaelp_akt.class);
+                startActivity(ih);
+                break;
+
+
+        }
     }
 }
