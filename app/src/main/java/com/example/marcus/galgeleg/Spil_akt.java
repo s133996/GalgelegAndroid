@@ -21,6 +21,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
     Galgelogik Galgelogik;
     ImageView galgen;
     Button gaetKnap;
+    Button nytSpilKnap;
     String bogstav;
 
     @Override
@@ -48,7 +49,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
 
         gaettetBogstav = (EditText) findViewById(R.id.gaetBogstav);
 
-
+        nytSpilKnap = (Button) findViewById(R.id.nytSpilKnap);
 
 
 
@@ -67,9 +68,9 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
         }
 
         if(Galgelogik.erSpilletVundet()){
-            besked.setText("Spillet er vundet! " + bogstav + " var korrekt!");
+            besked.setText("Spillet er vundet! " + bogstav + " var korrekt! tryk på Nyt Spil for at spille igen");
         }else if (Galgelogik.erSpilletTabt()) {
-            besked.setText("Spillet er tabt! " + bogstav + " var forkert!");
+            besked.setText("Spillet er tabt! " + bogstav + " var forkert! tryk på Nyt Spil for at spille igen");
         }else if(Galgelogik.erSidsteBogstavKorrekt()){
             besked.setText(bogstav + " var korrekt!");
         }else if(bogstav.length() != 1){
@@ -95,6 +96,8 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
         }else if (Galgelogik.getAntalForkerteBogstaver()==6) {
             galgen.setImageResource(R.mipmap.forkert6);
         }
+
+        if(Galgelogik.erSpilletSlut()) nytSpilKnap.setVisibility(View.VISIBLE);
 
         synligtOrd.setText(Galgelogik.getSynligtOrd());
 
