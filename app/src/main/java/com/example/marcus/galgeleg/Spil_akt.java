@@ -19,7 +19,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
     TextView galgeOrdet;
     EditText gaettetBogstav;
     Galgelogik Galgelogik;
-    ImageView galgen
+    ImageView galgen;
     Button gaetKnap;
     String bogstav;
 
@@ -28,7 +28,6 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spil_akt);
 
-       // R.mipmap.forkert1;
 
         Galgelogik = new Galgelogik();
         Galgelogik.nulstil();
@@ -43,10 +42,6 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
 
         galgen = (ImageView) findViewById(R.id.galgen);
         galgen.setImageResource(R.mipmap.galge);
-
-
-
-
 
         galgeOrdet = (TextView) findViewById(R.id.ordet);
         galgeOrdet.setText(Galgelogik.getOrdet());
@@ -77,10 +72,30 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
             besked.setText("Spillet er tabt! " + bogstav + " var forkert!");
         }else if(Galgelogik.erSidsteBogstavKorrekt()){
             besked.setText(bogstav + " var korrekt!");
+        }else if(bogstav.length() != 1){
+                besked.setText("skriv et bogstav");
         }else{
             besked.setText(bogstav + " var forkert! Du har " + (7-Galgelogik.getAntalForkerteBogstaver()) + " forsøg tilbage");
         }
+
         gaettetBogstav.setText("");
+
+        if (Galgelogik.getAntalForkerteBogstaver()==0){
+            galgen.setImageResource(R.mipmap.galge);
+        }else if (Galgelogik.getAntalForkerteBogstaver()==1) {
+            galgen.setImageResource(R.mipmap.forkert1);
+        }else if (Galgelogik.getAntalForkerteBogstaver()==2) {
+            galgen.setImageResource(R.mipmap.forkert2);
+        }else if (Galgelogik.getAntalForkerteBogstaver()==3) {
+            galgen.setImageResource(R.mipmap.forkert3);
+        }else if (Galgelogik.getAntalForkerteBogstaver()==4) {
+            galgen.setImageResource(R.mipmap.forkert4);
+        }else if (Galgelogik.getAntalForkerteBogstaver()==5) {
+            galgen.setImageResource(R.mipmap.forkert5);
+        }else if (Galgelogik.getAntalForkerteBogstaver()==6) {
+            galgen.setImageResource(R.mipmap.forkert6);
+        }
+
         synligtOrd.setText(Galgelogik.getSynligtOrd());
 
         System.out.println("gaetknap er trykket");
