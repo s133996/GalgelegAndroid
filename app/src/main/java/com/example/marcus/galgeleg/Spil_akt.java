@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import static com.example.marcus.galgeleg.Galgelogik.*;
@@ -14,9 +15,11 @@ import static com.example.marcus.galgeleg.Galgelogik.*;
 public class Spil_akt extends AppCompatActivity implements View.OnClickListener  {
 
     TextView synligtOrd;
+    TextView besked;
     TextView galgeOrdet;
     EditText gaettetBogstav;
     Galgelogik Galgelogik;
+    ImageView galgen
     Button gaetKnap;
     String bogstav;
 
@@ -24,6 +27,8 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spil_akt);
+
+       // R.mipmap.forkert1;
 
         Galgelogik = new Galgelogik();
         Galgelogik.nulstil();
@@ -33,6 +38,12 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
 
         synligtOrd = (TextView) findViewById(R.id.synligtOrd);
         synligtOrd.setText(Galgelogik.getSynligtOrd());
+
+        besked = (TextView) findViewById(R.id.besked);
+
+        galgen = (ImageView) findViewById(R.id.galgen);
+        galgen.setImageResource(R.mipmap.galge);
+
 
 
 
@@ -60,6 +71,16 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
             Log.d("nyt bogstav gættet", bogstav);
         }
 
+        if(Galgelogik.erSpilletVundet()){
+            besked.setText("Spillet er vundet! " + bogstav + " var korrekt!");
+        }else if (Galgelogik.erSpilletTabt()) {
+            besked.setText("Spillet er tabt! " + bogstav + " var forkert!");
+        }else if(Galgelogik.erSidsteBogstavKorrekt()){
+            besked.setText(bogstav + " var korrekt!");
+        }else{
+            besked.setText(bogstav + " var forkert! Du har " + (7-Galgelogik.getAntalForkerteBogstaver()) + " forsøg tilbage");
+        }
+        gaettetBogstav.setText("");
         synligtOrd.setText(Galgelogik.getSynligtOrd());
 
         System.out.println("gaetknap er trykket");
