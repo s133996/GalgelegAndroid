@@ -143,7 +143,20 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                     galgen.setImageResource(R.mipmap.forkert6);
                 }
 
-                if (Galgelogik.erSpilletSlut()) nytSpilKnap.setVisibility(View.VISIBLE);
+                if (Galgelogik.erSpilletSlut())
+                {
+                 if(Galgelogik.erSpilletVundet()){
+                     System.out.println("Spillet er vundet");
+                     Intent iv = new Intent(this, Vundet_akt.class);
+                     startActivity(iv);
+                  }else if (Galgelogik.erSpilletTabt())
+                 {
+                     System.out.println("Spillet er vundet");
+                     Intent it = new Intent(this, Tabt_akt.class);
+                     startActivity(it);
+                 }else besked.setText("noget gik galt, spillet er slut men du har hverken tabt eller vundwet");
+                }
+
 
                 synligtOrd.setText(Galgelogik.getSynligtOrd());
 

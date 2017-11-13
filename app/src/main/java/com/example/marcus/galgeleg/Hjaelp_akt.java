@@ -29,7 +29,6 @@ public class Hjaelp_akt extends AppCompatActivity implements View.OnClickListene
     }
     public void onClick(View v) {
         System.out.println("tilbageKnap er trykket");
-        Intent i = new Intent(this, Hovedmenu_akt.class);
-        startActivity(i);
+        finish();
     }
 }
