@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.marcus.galgeleg">
     tools:replace="android:value"
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Spil_akt" />
-        <activity android:name=".Hjaelp_akt"></activity>
+        <activity android:name=".Hjaelp_akt" />
+        <activity android:name=".Vundet_akt" />
+        <activity android:name=".Tabt_akt"></activity>
     </application>
 
 </manifest>

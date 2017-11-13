@@ -1,6 +1,8 @@
 package com.example.marcus.galgeleg;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +12,27 @@ public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickList
 
     Button knap;
     Button hjaelpKnap;
+    SharedPreferences prefs;
+    String fornavn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hovedmenu_akt);
+
+
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+
+        fornavn = prefs.getString("fornavn", "(ukendt)");
+
+        System.out.println(fornavn);
+
+        prefs.edit().putString("fornavn", fornavn).commit();
+
+        fornavn = prefs.getString("fornavn", "(ukendt)");
+
+        System.out.println(fornavn);
 
         knap = (Button) findViewById(R.id.spilknap);
 
