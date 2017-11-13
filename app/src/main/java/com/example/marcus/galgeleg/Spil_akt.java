@@ -154,6 +154,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                      synligtOrd.setText(Galgelogik.getSynligtOrd());
                      besked.setText("");
                      galgeOrdet.setText(Galgelogik.getOrdet());
+                     galgen.setImageResource(R.mipmap.galge);
                      startActivity(iv);
 
                   }else if (Galgelogik.erSpilletTabt())
@@ -161,11 +162,12 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                      System.out.println("Spillet er vundet");
                      Intent it = new Intent(this, Tabt_akt.class);
                      it.putExtra("ordet", Galgelogik.getOrdet());
-                     startActivity(it);
                      Galgelogik.nulstil();
                      synligtOrd.setText(Galgelogik.getSynligtOrd());
                      besked.setText("");
                      galgeOrdet.setText(Galgelogik.getOrdet());
+                     galgen.setImageResource(R.mipmap.galge);
+                     startActivity(it);
                  }else besked.setText("noget gik galt, spillet er slut men du har hverken tabt eller vundwet");
                 }
 
