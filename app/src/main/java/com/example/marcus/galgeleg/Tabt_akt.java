@@ -31,11 +31,9 @@ public class Tabt_akt extends AppCompatActivity implements View.OnClickListener 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         fornavn = prefs.getString("fornavn", "skriv dit navn her");
-        if (fornavn != "skriv dit navn her") {
+
             taberTekst.setText("Ærgeligt! " + fornavn + ", du har tabt! Ordet var: " + GalgeOrdet + ". Tryk på Nyt spil for at spille igen");
-        } else {
-            taberTekst.setText("Ærgeligt, du har tabt! Ordet var: " + GalgeOrdet + ". Tryk på Nyt spil for at spille igen");
-        }
+
     }
 
 

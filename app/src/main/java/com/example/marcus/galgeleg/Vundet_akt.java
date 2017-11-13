@@ -34,11 +34,9 @@ public class Vundet_akt extends AppCompatActivity implements View.OnClickListene
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         fornavn = prefs.getString("fornavn", "skriv dit navn her");
-        if (fornavn != "skriv dit navn her") {
+
             vinderTekst.setText("Tillykke " + fornavn + ", du har vundet! Du havde " + (7 - antalForkerteBogstaver) + " forsøg tilbage. tryk på Nyt spil for at spille igen");
-        } else {
-            vinderTekst.setText("Tillykke, du har vundet! Du havde " + (7 - antalForkerteBogstaver) + " forsøg tilbage. tryk på Nyt spil for at spille igen");
-        }
+
     }
 
 

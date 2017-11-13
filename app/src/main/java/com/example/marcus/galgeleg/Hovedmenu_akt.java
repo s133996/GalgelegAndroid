@@ -9,9 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickListener {
 
+    TextView velkomstTekst;
     Button knap;
     Button hjaelpKnap;
     SharedPreferences prefs;
@@ -23,6 +25,8 @@ public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hovedmenu_akt);
 
+        velkomstTekst = (TextView) findViewById(R.id.velkomsttekst);
+
 
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -30,7 +34,11 @@ public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickList
 
         fornavn = prefs.getString("fornavn", "skriv dit navn her");
 
-        System.out.println(fornavn);
+            System.out.println(fornavn);
+
+
+        velkomstTekst.setText("Hej! " + fornavn + " Velkommen tilbage til Galgeleg! Tryk på Spil");
+
 
         spillerNavn = (EditText) findViewById(R.id.spillerNavn);
 
@@ -49,6 +57,7 @@ public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickList
 
 
         System.out.println("Hovedmenu er lavet");
+        System.out.println(fornavn);
 
 
     }
