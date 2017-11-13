@@ -21,7 +21,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
 
     TextView synligtOrd;
     TextView besked;
-    TextView galgeOrdet;
+  //  TextView galgeOrdet;
     EditText gaettetBogstav;
     ImageView galgen;
     Button gaetKnap;
@@ -62,7 +62,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                 protected void onPostExecute(Object resultat) {
                     System.out.println("resultat: \n" + resultat);
                     synligtOrd.setText(Galgelogik.getSynligtOrd());
-                    galgeOrdet.setText(Galgelogik.getOrdet());
+              //      galgeOrdet.setText(Galgelogik.getOrdet());
 
                 }
             }.execute();
@@ -86,7 +86,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
         galgen.setImageResource(R.mipmap.galge);
 
         //galget ordet var så man kunne se det korrekte ord for test
-        galgeOrdet = (TextView) findViewById(R.id.ordet);
+     //   galgeOrdet = (TextView) findViewById(R.id.ordet);
 
 
 
@@ -153,7 +153,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                      Galgelogik.nulstil();
                      synligtOrd.setText(Galgelogik.getSynligtOrd());
                      besked.setText("");
-                     galgeOrdet.setText(Galgelogik.getOrdet());
+               //      galgeOrdet.setText(Galgelogik.getOrdet());
                      galgen.setImageResource(R.mipmap.galge);
                      startActivity(iv);
 
@@ -165,7 +165,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                      Galgelogik.nulstil();
                      synligtOrd.setText(Galgelogik.getSynligtOrd());
                      besked.setText("");
-                     galgeOrdet.setText(Galgelogik.getOrdet());
+                 //    galgeOrdet.setText(Galgelogik.getOrdet());
                      galgen.setImageResource(R.mipmap.galge);
                      startActivity(it);
                  }else besked.setText("noget gik galt, spillet er slut men du har hverken tabt eller vundwet");
