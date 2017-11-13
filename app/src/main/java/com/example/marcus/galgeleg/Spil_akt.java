@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import static android.R.attr.id;
 import static com.example.marcus.galgeleg.Galgelogik.*;
 
 public class Spil_akt extends AppCompatActivity implements View.OnClickListener  {
@@ -26,7 +27,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
     Button gaetKnap;
     Button nytSpilKnap;
     String bogstav;
-    public static  Galgelogik Galgelogik = new Galgelogik();
+    Galgelogik Galgelogik = new Galgelogik();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,12 +149,23 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                  if(Galgelogik.erSpilletVundet()){
                      System.out.println("Spillet er vundet");
                      Intent iv = new Intent(this, Vundet_akt.class);
+                     iv.putExtra("antalForkerteBogstaver", Galgelogik.getAntalForkerteBogstaver());
+                     Galgelogik.nulstil();
+                     synligtOrd.setText(Galgelogik.getSynligtOrd());
+                     besked.setText("");
+                     galgeOrdet.setText(Galgelogik.getOrdet());
                      startActivity(iv);
+
                   }else if (Galgelogik.erSpilletTabt())
                  {
                      System.out.println("Spillet er vundet");
                      Intent it = new Intent(this, Tabt_akt.class);
+                     it.putExtra("ordet", Galgelogik.getOrdet());
                      startActivity(it);
+                     Galgelogik.nulstil();
+                     synligtOrd.setText(Galgelogik.getSynligtOrd());
+                     besked.setText("");
+                     galgeOrdet.setText(Galgelogik.getOrdet());
                  }else besked.setText("noget gik galt, spillet er slut men du har hverken tabt eller vundwet");
                 }
 
@@ -163,14 +175,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                 System.out.println("gaetknap er trykket");
                 break;
 
-            case R.id.nytSpilKnap:
 
-                Galgelogik.nulstil();
-                synligtOrd.setText(Galgelogik.getSynligtOrd());
-                besked.setText("");
-                nytSpilKnap.setVisibility(View.GONE);
-                galgeOrdet.setText(Galgelogik.getOrdet());
-                break;
 
         }
     }
