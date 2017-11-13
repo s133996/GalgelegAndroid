@@ -1,6 +1,7 @@
 package com.example.marcus.galgeleg;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +17,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
 
     TextView synligtOrd;
     TextView besked;
-   // TextView galgeOrdet;
+    TextView galgeOrdet;
     EditText gaettetBogstav;
     ImageView galgen;
     Button gaetKnap;
@@ -36,8 +37,34 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
         gaetKnap = (Button) findViewById(R.id.gaetKnap);
         gaetKnap.setOnClickListener(this);
 
+        gaettetBogstav = (EditText) findViewById(R.id.gaetBogstav);
         synligtOrd = (TextView) findViewById(R.id.synligtOrd);
-        synligtOrd.setText(Galgelogik.getSynligtOrd());
+
+        //kilde: vink til AsyncTask fra https://docs.google.com/document/d/1YLo9krF3pdg-IB8Wjw3ZZzr4Xo1le-nBBj7gk158muQ/edit#
+        System.out.println("Henter ord fra DRs server....");
+        new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object... arg0) {
+                try {
+                    Galgelogik.hentOrdFraDr();
+                    return "Ordene blev korrekt hentet fra DR's server";
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "Ordene blev ikke hentet korrekt: "+e;
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Object resultat) {
+                System.out.println("resultat: \n" + resultat);
+                synligtOrd.setText(Galgelogik.getSynligtOrd());
+                galgeOrdet.setText(Galgelogik.getOrdet());
+            }
+        }.execute();
+
+
+
+
 
         besked = (TextView) findViewById(R.id.besked);
 
@@ -45,10 +72,10 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
         galgen.setImageResource(R.mipmap.galge);
 
         //galget ordet var så man kunne se det korrekte ord for test
-        //galgeOrdet = (TextView) findViewById(R.id.ordet);
-        //galgeOrdet.setText(Galgelogik.getOrdet());
+        galgeOrdet = (TextView) findViewById(R.id.ordet);
 
-        gaettetBogstav = (EditText) findViewById(R.id.gaetBogstav);
+
+
 
         nytSpilKnap = (Button) findViewById(R.id.nytSpilKnap);
         nytSpilKnap.setOnClickListener(this);
@@ -116,6 +143,7 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                 synligtOrd.setText(Galgelogik.getSynligtOrd());
                 besked.setText("");
                 nytSpilKnap.setVisibility(View.GONE);
+                galgeOrdet.setText(Galgelogik.getOrdet());
 
                 break;
 
