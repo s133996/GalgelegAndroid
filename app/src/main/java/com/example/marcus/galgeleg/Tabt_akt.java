@@ -8,11 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import static com.example.marcus.galgeleg.Singleton.prefs;
+
 public class Tabt_akt extends AppCompatActivity implements View.OnClickListener {
 
     Button taberKnap;
     TextView taberTekst;
-    SharedPreferences prefs;
+ //   SharedPreferences prefs;
     String fornavn;
 
     @Override
@@ -28,7 +30,6 @@ public class Tabt_akt extends AppCompatActivity implements View.OnClickListener 
 
         taberTekst = (TextView) findViewById(R.id.taberTekst);
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         fornavn = prefs.getString("fornavn", "skriv dit navn her");
 

@@ -159,9 +159,10 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
                  //    galgeOrdet.setText(Galgelogik.getOrdet());
                      galgen.setImageResource(R.mipmap.galge);
                      startActivity(it);
-                 }else besked.setText("noget gik galt, spillet er slut men du har hverken tabt eller vundwet");
+                 }else besked.setText("noget gik galt, spillet er slut men du har hverken tabt eller vundet");
                 }
 
+                Galgelogik.logStatus();
 
                 synligtOrd.setText(Galgelogik.getSynligtOrd());
 

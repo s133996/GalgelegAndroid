@@ -10,12 +10,13 @@ import android.widget.TextView;
 
 import static com.example.marcus.galgeleg.R.id.besked;
 import static com.example.marcus.galgeleg.R.id.synligtOrd;
+import static com.example.marcus.galgeleg.Singleton.prefs;
 
 public class Vundet_akt extends AppCompatActivity implements View.OnClickListener {
 
     Button vinderKnap;
     TextView vinderTekst;
-    SharedPreferences prefs;
+ //   SharedPreferences prefs;
     String fornavn;
 
     @Override
@@ -31,7 +32,6 @@ public class Vundet_akt extends AppCompatActivity implements View.OnClickListene
 
         vinderTekst = (TextView) findViewById(R.id.vinderTekst);
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         fornavn = prefs.getString("fornavn", "skriv dit navn her");
 

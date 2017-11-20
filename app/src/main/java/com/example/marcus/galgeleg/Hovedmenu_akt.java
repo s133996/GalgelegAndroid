@@ -11,12 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.marcus.galgeleg.Singleton.prefs;
+
 public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickListener {
 
     TextView velkomstTekst;
     Button knap;
     Button hjaelpKnap;
-    SharedPreferences prefs;
     String fornavn;
     EditText spillerNavn;
 
@@ -26,11 +27,6 @@ public class Hovedmenu_akt extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_hovedmenu_akt);
 
         velkomstTekst = (TextView) findViewById(R.id.velkomsttekst);
-
-
-
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
 
         fornavn = prefs.getString("fornavn", "skriv dit navn her");
 
