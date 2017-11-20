@@ -70,15 +70,6 @@ public class Spil_akt extends AppCompatActivity implements View.OnClickListener 
 
 
 
-        /*  SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-        String fornavn = prefs.getString("fornavn", "(ukendt)");
-
-        String fornavn = "Søren";
-        prefs.edit().putString("fornavn", fornavn).commit(); */
-
-
-
 
         besked = (TextView) findViewById(R.id.besked);
 
